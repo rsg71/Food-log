@@ -1,0 +1,20 @@
+// Routes
+/**
+* @swagger
+* /test:
+*    get:
+*      description: Returns all users
+*      parameters:
+*      - name: customer
+*        in: query
+*        description: Model name
+*        required: true
+*        schema:
+*          type: string
+*          format: string
+*      responses:
+*        '200':
+*          description: Successfully returned paginated records
+*        '403':
+*          description: Not enough permissions read_modelName
+*/

@@ -1,0 +1,52 @@
+
+<h1>Entries</h1>
+
+    <tr>
+      <th>Meal type</th>
+      <th>Calories</th>
+      <th>Proteins</th>
+      <th>Carbohydrates</th>
+      <th>Fats</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <div class="columns mt-6 is-centered">
+
+    <% @entries.each do |entry| %>
+      <div class="column is-one-quarter">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title"><%= entry.meal_type %></p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+                <p><span class="has-text-weight-bold"><%= entry.calories %></span> calories</p>
+                <p><span class="has-text-weight-bold"><%= entry.proteins %></span> proteins</p>
+                <p><span class="has-text-weight-bold"><%= entry.carbohydrates %></span> carbohydrates</p>
+                <p><span class="has-text-weight-bold"><%= entry.fats %></span> fats</p>
+                <p><span class="has-text-weight-bold"><%= link_to 'Show', entry %></span></p>
+                <p><span class="has-text-weight-bold"><%= link_to 'Edit', edit_entry_path(entry) %></span></p>
+                <p class="italic">Logged <%= time_ago_in_words(entry.created_at)%> ago</p>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <%= link_to 'Show', entry, class: "card-footer-item" %>
+            <%= link_to 'Edit', edit_entry_path(entry), class: "card-footer-item" %>
+            <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure'}, class: "card-footer-item" %>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+
+    </div>
+
+<br>
+
+<div class="columns is-centered mt-6">
+  <%= link_to "View all entries", archives_index_path, class: "button is-link is-outlined is-centered" %>
+</div>
+
+<%# <%= link_to 'New Entry', new_entry_path %> %>
